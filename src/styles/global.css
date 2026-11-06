@@ -39,7 +39,6 @@
   --line: rgba(242, 239, 230, 0.14);
   --line-soft: rgba(242, 239, 230, 0.08);
   --lime: #d9ff3f;
-  --lime-dim: #a8c92e;
   --violet: #a78bfa;
   --black: #08080a;
 
@@ -51,7 +50,6 @@
   --header-h: 76px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *,
