@@ -1092,6 +1092,7 @@ main       8c6b5e1  Merge pull request #2 ... (assignment baseline)
            e08468d  Make static output explicit and fix countdown ARIA role
            8eaa2d3  Remove unused design tokens
            36eda66  Add PNG apple-touch-icon for iOS
+           95eb7e1  Add technical specification and architecture decision record
 ```
 
 The branch is intentionally narrow in scope: one feature, a focused commit series, no unrelated changes to the assignment README. This keeps a future PR reviewable and makes revert straightforward.
@@ -1111,6 +1112,7 @@ Remote layout:
 | `e08468d` | Make static output explicit and fix countdown ARIA role | `output: 'static'`; `role="group"` on countdown; progress log |
 | `8eaa2d3` | Remove unused design tokens | Deleted `--lime-dim` and `--ease-out` (zero references) |
 | `36eda66` | Add PNG apple-touch-icon for iOS | 180×180 PNG and layout link |
+| `95eb7e1` | Add technical specification and architecture decision record | This document, progress log, branch push |
 
 Commit messages are imperative, scoped, and explain the change rather than the activity. The repository has no merge commits on the feature branch, no fixup commits, and no generated artifacts (`dist/`, `node_modules/`, `.astro/`) in version control.
 
