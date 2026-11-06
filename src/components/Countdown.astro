@@ -1,0 +1,138 @@
+---
+// Live countdown to the fictional event. Renders static placeholders first,
+// then ticks once per second in the browser.
+---
+
+<div class="countdown-wrap">
+  <div
+    class="countdown"
+    data-countdown
+    data-target="2027-03-19T09:00:00+08:00"
+    aria-label="Countdown to SIGNAL/27"
+  >
+    <div class="cd-cell">
+      <span class="cd-value" data-days>--</span>
+      <span class="cd-label">Days</span>
+    </div>
+    <div class="cd-cell">
+      <span class="cd-value" data-hours>--</span>
+      <span class="cd-label">Hours</span>
+    </div>
+    <div class="cd-cell">
+      <span class="cd-value" data-minutes>--</span>
+      <span class="cd-label">Minutes</span>
+    </div>
+    <div class="cd-cell">
+      <span class="cd-value" data-seconds>--</span>
+      <span class="cd-label">Seconds</span>
+    </div>
+  </div>
+  <p class="cd-note" data-cd-note>Doors open 19 March 2027, 09:00 MYT</p>
+</div>
+
+<style>
+  .countdown-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    max-width: 460px;
+  }
+
+  .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(242, 239, 230, 0.02);
+    backdrop-filter: blur(4px);
+  }
+
+  .cd-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 1rem 0.5rem 0.85rem;
+    border-right: 1px solid var(--line-soft);
+  }
+
+  .cd-cell:last-child {
+    border-right: 0;
+  }
+
+  .cd-value {
+    font-size: clamp(1.6rem, 3.4vw, 2.15rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+
+  .cd-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .cd-note {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--faint);
+  }
+
+  .countdown.is-live .cd-value {
+    color: var(--lime);
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-countdown]');
+
+  if (root) {
+    const target = new Date(root.dataset.target ?? '').getTime();
+    const fields = {
+      days: root.querySelector<HTMLElement>('[data-days]'),
+      hours: root.querySelector<HTMLElement>('[data-hours]'),
+      minutes: root.querySelector<HTMLElement>('[data-minutes]'),
+      seconds: root.querySelector<HTMLElement>('[data-seconds]'),
+    };
+    const note = document.querySelector<HTMLElement>('[data-cd-note]');
+
+    const pad = (n: number) => String(n).padStart(2, '0');
+
+    const render = () => {
+      const diff = Number.isFinite(target) ? target - Date.now() : 0;
+
+      if (diff <= 0) {
+        root.classList.add('is-live');
+        Object.values(fields).forEach((el) => {
+          if (el) el.textContent = '00';
+        });
+        if (note) note.textContent = "The signal is live — see you there.";
+        return false;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86_400);
+      const hours = Math.floor((totalSeconds % 86_400) / 3_600);
+      const minutes = Math.floor((totalSeconds % 3_600) / 60);
+      const seconds = totalSeconds % 60;
+
+      if (fields.days) fields.days.textContent = pad(days);
+      if (fields.hours) fields.hours.textContent = pad(hours);
+      if (fields.minutes) fields.minutes.textContent = pad(minutes);
+      if (fields.seconds) fields.seconds.textContent = pad(seconds);
+
+      return true;
+    };
+
+    if (render()) {
+      const timer = window.setInterval(() => {
+        if (!render()) window.clearInterval(timer);
+      }, 1000);
+    }
+  }
+</script>

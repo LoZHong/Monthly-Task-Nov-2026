@@ -1,0 +1,19 @@
+{
+  "name": "signal-27",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SIGNAL/27 — a coming-soon teaser site for a fictional CS Society USM festival, built with Astro.",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.4.7"
+  }
+}

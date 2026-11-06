@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Signal lost · SIGNAL/27"
+  description="This page drifted out of orbit. Return to the SIGNAL/27 homepage."
+  noindex
+>
+  <section class="notfound">
+    <div class="notfound-bg" aria-hidden="true">
+      <div class="grid-lines"></div>
+      <div class="scanlines"></div>
+    </div>
+
+    <div class="container notfound-inner">
+      <p class="eyebrow"><span class="dot"></span> Error 404 / Transmission not found</p>
+
+      <div class="glitch" aria-hidden="true">
+        <span class="glitch-layer glitch-a">404</span>
+        <span class="glitch-layer glitch-b">404</span>
+        <span class="glitch-base">404</span>
+      </div>
+
+      <h1 class="notfound-title">
+        <span class="visually-hidden">Error 404 — </span>
+        <span>This page drifted </span>
+        <em class="serif-italic">out of orbit.</em>
+      </h1>
+
+      <p class="notfound-copy">
+        The URL you followed does not exist — or it has not been built yet. Either way, the signal
+        is stronger back at base.
+      </p>
+
+      <div class="notfound-actions">
+        <a class="btn btn-primary" href="/">Return to base <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="/about">About the event</a>
+      </div>
+
+      <p class="notfound-meta">SIGNAL/27 · 19—21 March 2027 · Penang, Malaysia</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    position: relative;
+    min-height: calc(100svh - var(--header-h));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .notfound-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(50% 60% at 50% 30%, rgba(167, 139, 250, 0.1), transparent 70%),
+      radial-gradient(40% 50% at 80% 80%, rgba(217, 255, 63, 0.08), transparent 70%);
+  }
+
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(242, 239, 230, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(242, 239, 230, 0.04) 1px, transparent 1px);
+    background-size: 92px 92px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 10%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 10%, transparent 80%);
+  }
+
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0 3px,
+      rgba(242, 239, 230, 0.018) 3px 4px
+    );
+  }
+
+  .notfound-inner {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+
+  .glitch {
+    position: relative;
+    margin-top: 1.75rem;
+    font-size: clamp(7rem, 25vw, 20rem);
+    font-weight: 600;
+    line-height: 0.78;
+    letter-spacing: -0.08em;
+    color: var(--ink);
+    user-select: none;
+  }
+
+  .glitch-base,
+  .glitch-layer {
+    display: block;
+  }
+
+  .glitch-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .glitch-a {
+    color: var(--lime);
+    opacity: 0.55;
+    animation: glitch-a 5.5s var(--ease) infinite;
+  }
+
+  .glitch-b {
+    color: var(--violet);
+    opacity: 0.45;
+    animation: glitch-b 4.2s var(--ease) infinite;
+  }
+
+  @keyframes glitch-a {
+    0%,
+    88%,
+    100% {
+      transform: translate(0, 0);
+      clip-path: inset(0 0 0 0);
+    }
+    90% {
+      transform: translate(-6px, 2px);
+      clip-path: inset(18% 0 62% 0);
+    }
+    93% {
+      transform: translate(5px, -3px);
+      clip-path: inset(58% 0 22% 0);
+    }
+    96% {
+      transform: translate(-3px, 1px);
+      clip-path: inset(38% 0 44% 0);
+    }
+  }
+
+  @keyframes glitch-b {
+    0%,
+    82%,
+    100% {
+      transform: translate(0, 0);
+      clip-path: inset(0 0 0 0);
+    }
+    85% {
+      transform: translate(7px, -2px);
+      clip-path: inset(45% 0 35% 0);
+    }
+    88% {
+      transform: translate(-4px, 3px);
+      clip-path: inset(10% 0 72% 0);
+    }
+    91% {
+      transform: translate(2px, 2px);
+      clip-path: inset(66% 0 12% 0);
+    }
+  }
+
+  .notfound-title {
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    max-width: 22ch;
+  }
+
+  .notfound-title em {
+    color: var(--lime);
+  }
+
+  .notfound-copy {
+    margin-top: 1.25rem;
+    max-width: 48ch;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .notfound-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 2rem;
+  }
+
+  .notfound-meta {
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  @media (max-width: 640px) {
+    .notfound {
+      min-height: auto;
+    }
+
+    .notfound-inner {
+      padding-block: 4rem 3.5rem;
+    }
+  }
+</style>

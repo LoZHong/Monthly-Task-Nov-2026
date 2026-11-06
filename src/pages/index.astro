@@ -1,0 +1,733 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Countdown from '../components/Countdown.astro';
+
+const marquee = [
+  'Coming soon',
+  '19—21 March 2027',
+  'USM Engineering Campus',
+  'Code · Craft · Chaos',
+  'Penang, Malaysia',
+];
+
+const pillars = [
+  {
+    num: '01',
+    title: 'Build',
+    body: '48 hours, one brief, no hand-holding. Teams of up to four turn a half-formed idea into something strangers can poke at.',
+    tag: 'Hackathon',
+  },
+  {
+    num: '02',
+    title: 'Break',
+    body: "Talks and workshops from people who've shipped real things — and broken real things. Bring questions, leave with opinions.",
+    tag: 'Stage + Labs',
+  },
+  {
+    num: '03',
+    title: 'Belong',
+    body: 'A yard full of food stalls, loud music and people who get it. The best part of any conference is the hallway. Ours is outside.',
+    tag: 'The Yard',
+  },
+];
+
+const days = [
+  {
+    day: 'Day 01',
+    date: '19 Mar',
+    title: 'Arrive & align',
+    body: 'Check-in, team matching, the opening keynote and the first sprint brief. Doors at 09:00 sharp.',
+  },
+  {
+    day: 'Day 02',
+    date: '20 Mar',
+    title: 'Build & break',
+    body: 'Workshops by day, hacking by night. Mentors on the floor until 2am, coffee until later.',
+  },
+  {
+    day: 'Day 03',
+    date: '21 Mar',
+    title: 'Ship & celebrate',
+    body: 'Demos, judging, awards, and a closing party you will still be talking about next semester.',
+  },
+];
+
+const stats = [
+  { value: '48', label: 'Hours of building' },
+  { value: '300', label: 'Seats, one roof' },
+  { value: '12', label: 'Workshops' },
+  { value: '01', label: 'Very good idea' },
+];
+---
+
+<BaseLayout active="home">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="grid-lines"></div>
+      <div class="glow glow-lime"></div>
+      <div class="glow glow-violet"></div>
+      <div class="orb"></div>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-top">
+        <p class="eyebrow"><span class="dot"></span> CS Society USM presents</p>
+        <p class="hero-coord">05.35°N / 100.30°E</p>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-word">SIGNAL</span><span class="hero-year">/27</span>
+      </h1>
+
+      <div class="hero-foot">
+        <p class="hero-lede">
+          Three days of <em class="serif-italic">code, craft &amp; beautiful chaos.</em> The next
+          chapter of USM's tech scene is loading — and you're early.
+        </p>
+
+        <div class="hero-side">
+          <div class="hero-meta">
+            <span class="chip chip-status"><span class="bullet"></span>Coming soon</span>
+            <span class="chip">19—21 March 2027</span>
+            <span class="chip">Penang, MY</span>
+          </div>
+          <Countdown />
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/about">
+              Read the transmission <span aria-hidden="true">→</span>
+            </a>
+            <a
+              class="btn btn-ghost"
+              href="mailto:hello@signal27.my?subject=Keep%20me%20in%20the%20loop%20%E2%80%94%20SIGNAL%2F27"
+            >
+              Get updates
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      {[0, 1].map(() => (
+        <div class="ticker-group">
+          {marquee.map((item) => (
+            <span class="ticker-item">
+              {item}
+              <span class="ticker-star">✦</span>
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="section idea">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span> 01 / The idea</p>
+        <p class="note">A festival, not a conference</p>
+      </div>
+
+      <div class="idea-grid">
+        <h2 class="idea-title">
+          Not another<br />
+          <em class="serif-italic">hackathon.</em>
+        </h2>
+
+        <div class="idea-copy">
+          <p>
+            SIGNAL/27 is a three-day gathering for people who make things with computers — and
+            people who make things with everything else. Expect half-finished demos, unreasonably
+            strong coffee, and the particular joy of watching an idea survive its first night.
+          </p>
+          <p>
+            Built by students, for students. Open to every campus, every major, every skill level.
+            If you have never shipped anything before, come anyway. That is sort of the point.
+          </p>
+        </div>
+      </div>
+
+      <div class="pillars">
+        {pillars.map((pillar) => (
+          <article class="pillar">
+            <span class="pillar-num">{pillar.num}</span>
+            <h3 class="pillar-title">{pillar.title}</h3>
+            <p class="pillar-body">{pillar.body}</p>
+            <span class="pillar-tag">{pillar.tag}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section programme">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span> 02 / The shape of it</p>
+        <p class="note">Three days, loosely planned</p>
+      </div>
+
+      <div class="prog-grid">
+        <ol class="days">
+          {days.map((item) => (
+            <li class="day-row">
+              <div class="day-stamp">
+                <span class="day-label">{item.day}</span>
+                <span class="day-date">{item.date}</span>
+              </div>
+              <div class="day-copy">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <aside class="stats" aria-label="Event at a glance">
+          {stats.map((stat) => (
+            <div class="stat">
+              <span class="stat-value">{stat.value}</span>
+              <span class="stat-label">{stat.label}</span>
+            </div>
+          ))}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="container cta-inner">
+      <p class="eyebrow cta-eyebrow"><span class="dot"></span> 03 / Stay tuned</p>
+      <h2 class="cta-title">
+        The first signal<br />
+        drops <em class="serif-italic">soon.</em>
+      </h2>
+      <p class="cta-copy">
+        Tickets, speakers and the full programme land in one loud email. Be on the list before
+        everyone else is.
+      </p>
+      <a
+        class="btn btn-dark"
+        href="mailto:hello@signal27.my?subject=Put%20me%20on%20the%20list%20%E2%80%94%20SIGNAL%2F27"
+      >
+        Join the transmission list <span aria-hidden="true">→</span>
+      </a>
+      <p class="cta-fine">One email when tickets drop. Nothing else. Promise.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ---------------- Hero ---------------- */
+
+  .hero {
+    position: relative;
+    min-height: calc(100svh - var(--header-h));
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(242, 239, 230, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(242, 239, 230, 0.045) 1px, transparent 1px);
+    background-size: 92px 92px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 20%, transparent 75%);
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+  }
+
+  .glow-lime {
+    width: 45vw;
+    height: 45vw;
+    top: -18vw;
+    right: -8vw;
+    background: radial-gradient(circle, rgba(217, 255, 63, 0.28), transparent 65%);
+  }
+
+  .glow-violet {
+    width: 40vw;
+    height: 40vw;
+    bottom: -16vw;
+    left: -10vw;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.24), transparent 65%);
+  }
+
+  .orb {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    width: clamp(220px, 32vw, 460px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgba(217, 255, 63, 0.42) 55deg,
+      transparent 130deg,
+      rgba(167, 139, 250, 0.45) 210deg,
+      transparent 300deg
+    );
+    filter: blur(38px);
+    opacity: 0.55;
+    animation: spin 26s linear infinite;
+    mask-image: radial-gradient(circle, #000 35%, transparent 72%);
+    -webkit-mask-image: radial-gradient(circle, #000 35%, transparent 72%);
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(2rem, 4vh, 3rem);
+    padding-block: clamp(1.75rem, 5vh, 3.25rem) clamp(2rem, 5vh, 3rem);
+    width: 100%;
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    animation: rise 0.8s var(--ease) both;
+  }
+
+  .hero-coord {
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+
+  .hero-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.06em;
+    font-size: clamp(3.4rem, 15vw, 12.5rem);
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    line-height: 0.78;
+    margin-left: -0.04em;
+    animation: rise 1s var(--ease) 0.08s both;
+  }
+
+  .hero-year {
+    font-size: 0.22em;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--lime);
+    padding-top: 0.18em;
+  }
+
+  .hero-foot {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
+    border-top: 1px solid var(--line);
+    animation: rise 1s var(--ease) 0.18s both;
+  }
+
+  .hero-lede {
+    font-size: clamp(1.02rem, 1.45vw, 1.22rem);
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 34ch;
+  }
+
+  .hero-lede em {
+    color: var(--ink);
+    font-size: 1.12em;
+  }
+
+  .hero-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    justify-self: end;
+    width: 100%;
+    max-width: 430px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip-status {
+    border-color: rgba(217, 255, 63, 0.5);
+    color: var(--lime);
+    background: rgba(217, 255, 63, 0.07);
+  }
+
+  /* ---------------- Ticker ---------------- */
+
+  .ticker {
+    background: var(--lime);
+    color: var(--black);
+    overflow: hidden;
+    border-block: 1px solid var(--lime);
+  }
+
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 34s linear infinite;
+  }
+
+  .ticker-group {
+    display: flex;
+    flex: none;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 0.72rem 1.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .ticker-star {
+    font-size: 0.7em;
+  }
+
+  /* ---------------- Idea ---------------- */
+
+  .idea-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .idea-title {
+    font-size: clamp(2.8rem, 7vw, 5.4rem);
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+  }
+
+  .idea-title em {
+    color: var(--lime);
+  }
+
+  .idea-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 50ch;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--line);
+  }
+
+  .pillar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--bg);
+    transition: background 0.4s var(--ease);
+  }
+
+  .pillar:hover {
+    background: var(--bg-soft);
+  }
+
+  .pillar-num {
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--faint);
+  }
+
+  .pillar-title {
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    letter-spacing: -0.04em;
+  }
+
+  .pillar-body {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .pillar-tag {
+    align-self: flex-start;
+    margin-top: 0.4rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--lime);
+    border-top: 1px solid var(--line);
+    padding-top: 0.9rem;
+    width: 100%;
+  }
+
+  /* ---------------- Programme ---------------- */
+
+  .programme {
+    background:
+      radial-gradient(50% 60% at 100% 0%, rgba(167, 139, 250, 0.06), transparent 70%),
+      var(--bg-soft);
+  }
+
+  .prog-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.8fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .days {
+    border-top: 1px solid var(--line);
+  }
+
+  .day-row {
+    display: grid;
+    grid-template-columns: 108px minmax(0, 1fr);
+    gap: clamp(1rem, 2.5vw, 2rem);
+    padding-block: 1.55rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .day-stamp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .day-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+
+  .day-date {
+    font-size: 0.72rem;
+    color: var(--faint);
+    letter-spacing: 0.06em;
+  }
+
+  .day-copy h3 {
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    margin-bottom: 0.45rem;
+  }
+
+  .day-copy p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    max-width: 52ch;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(242, 239, 230, 0.02);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.4rem;
+    border-right: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .stat:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .stat:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .stat-value {
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: var(--lime);
+  }
+
+  .stat-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  /* ---------------- CTA ---------------- */
+
+  .cta {
+    background: var(--lime);
+    color: var(--black);
+    border-top: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    right: -20vw;
+    top: -30vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(8, 8, 10, 0.09), transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.35rem;
+  }
+
+  .cta-eyebrow {
+    color: rgba(8, 8, 10, 0.62);
+  }
+
+  .cta-eyebrow .dot {
+    background: var(--black);
+    box-shadow: none;
+  }
+
+  .cta-title {
+    font-size: clamp(2.9rem, 8vw, 6.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    max-width: 16ch;
+  }
+
+  .cta-title em {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--black);
+  }
+
+  .cta-copy {
+    max-width: 44ch;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(8, 8, 10, 0.72);
+  }
+
+  .cta .btn-dark {
+    margin-top: 0.75rem;
+  }
+
+  .cta-fine {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: rgba(8, 8, 10, 0.68);
+  }
+
+  /* ---------------- Responsive ---------------- */
+
+  @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-inner {
+      gap: 2.5rem;
+      padding-block: 2.5rem 2.25rem;
+    }
+
+    .hero-foot {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .hero-side {
+      justify-self: start;
+    }
+
+    .idea-grid,
+    .prog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .idea-copy {
+      max-width: 62ch;
+    }
+
+    .pillars {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-coord {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: clamp(3.2rem, 19vw, 6rem);
+    }
+
+    .day-row {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    .stats {
+      width: 100%;
+    }
+  }
+</style>

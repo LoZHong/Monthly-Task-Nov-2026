@@ -1,0 +1,634 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const expectations = [
+  {
+    num: '01',
+    title: 'The build floor',
+    body: 'One hall, 300 people, far too many extension cords. Teams claim a table on day one and defend it until the final demo.',
+    meta: '48 hours · Teams of 1—4',
+  },
+  {
+    num: '02',
+    title: 'The stage',
+    body: 'Keynotes and lightning talks from engineers, designers and founders who have actually shipped the thing they are talking about.',
+    meta: '6 talks · 2 keynotes',
+  },
+  {
+    num: '03',
+    title: 'The labs',
+    body: 'Hands-on workshops that assume nothing. Walk in curious, walk out with something running on your laptop.',
+    meta: '12 sessions · Beginner-friendly',
+  },
+  {
+    num: '04',
+    title: 'The yard',
+    body: 'Food stalls, a silent disco, a screenprinting table and enough open space to remember why you like doing this.',
+    meta: 'Open late · All three days',
+  },
+];
+
+const facts = [
+  { term: 'When', detail: '19—21 March 2027' },
+  { term: 'Where', detail: 'Engineering Campus, USM — Nibong Tebal, Penang' },
+  { term: 'Who', detail: 'Students and recent grads from any campus or major' },
+  { term: 'Cost', detail: 'RM 45 — meals, coffee and a shirt included' },
+  { term: 'Format', detail: 'Teams of 1—4. Solo builders get matched on day one.' },
+];
+
+const faqs = [
+  {
+    q: 'Do I need a team to sign up?',
+    a: 'No. Register solo and we will run a team-matching session on the morning of day one. Plenty of people arrive without one — that is half the point of showing up.',
+  },
+  {
+    q: 'I have never written code before. Is this for me?',
+    a: 'Yes. The labs are built for first-timers, and every team gets a mentor. There is also a no-code track for people who would rather design, write or organise than ship software.',
+  },
+  {
+    q: 'Is it an overnight event?',
+    a: 'The venue stays open through the night on days one and two, but sleeping is allowed and encouraged. There is a quiet room with mats, and the coffee never really stops.',
+  },
+  {
+    q: 'What should I bring?',
+    a: 'A laptop and charger, a water bottle, and anything you need to think clearly. Meals are covered, but the good snacks are always the ones someone else brought.',
+  },
+];
+---
+
+<BaseLayout
+  active="about"
+  title="About — SIGNAL/27"
+  description="What SIGNAL/27 is, who it is for, and what three days at USM Engineering Campus will actually feel like."
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow"><span class="dot"></span> Transmission 002 / About</p>
+      <h1 class="page-title">
+        The signal behind<br />
+        <em class="serif-italic">the noise.</em>
+      </h1>
+      <div class="page-hero-foot">
+        <p class="lede">
+          SIGNAL/27 is a three-day festival for people who build things — with code, with
+          hardware, with paper and glue. It is part hackathon, part classroom, part very loud
+          reunion.
+        </p>
+        <div class="page-meta">
+          <span class="chip">19—21 March 2027</span>
+          <span class="chip"><span class="bullet"></span>Penang, MY</span>
+          <span class="chip">300 seats</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section story">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span> 01 / Origin</p>
+        <p class="note">Why we are doing this</p>
+      </div>
+
+      <div class="story-grid">
+        <p class="story-kicker serif-italic">Built by students who kept waiting for someone else to build it.</p>
+
+        <div class="story-copy">
+          <p>
+            Every year, the same conversation happens in the lab after midnight: someone has an
+            idea, someone else knows how to build it, and nobody knows where to put it. SIGNAL/27
+            is the place we decided to put it.
+          </p>
+          <p>
+            It is not a recruitment fair and it is not a pitch competition. There is no dress code
+            and no keynote about synergy. There are three days, a roof, a ridiculous amount of
+            coffee, and a few hundred people who would rather make a rough prototype than talk
+            about a perfect one.
+          </p>
+          <p>
+            We are keeping it small enough that you can meet everyone and ambitious enough that
+            you will leave with something you did not expect to make.
+          </p>
+
+          <blockquote class="pullquote">
+            <p>
+              “The best thing I made at a hackathon was not the project. It was the four people I
+              still text at 2am.”
+            </p>
+            <cite>— every organiser, eventually</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section expect">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span> 02 / What to expect</p>
+        <p class="note">Four rooms, one weekend</p>
+      </div>
+
+      <div class="expect-grid">
+        {expectations.map((item) => (
+          <article class="expect-card">
+            <span class="expect-num">{item.num}</span>
+            <h2>{item.title}</h2>
+            <p>{item.body}</p>
+            <span class="expect-meta">{item.meta}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section details">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span> 03 / The fine print</p>
+        <p class="note">Everything you would otherwise DM us about</p>
+      </div>
+
+      <div class="details-grid">
+        <dl class="facts">
+          {facts.map((fact) => (
+            <div class="fact">
+              <dt>{fact.term}</dt>
+              <dd>{fact.detail}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <aside class="venue">
+          <div class="venue-map" aria-hidden="true">
+            <span class="venue-ring"></span>
+            <span class="venue-pin"></span>
+            <span class="venue-label">USM</span>
+          </div>
+          <div class="venue-copy">
+            <p class="eyebrow">Find us</p>
+            <h2>Engineering Campus, USM</h2>
+            <p>Nibong Tebal, Penang, Malaysia</p>
+            <a
+              class="venue-link"
+              href="https://www.google.com/maps/search/?api=1&query=Universiti+Sains+Malaysia+Engineering+Campus"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open in Maps <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span> 04 / Questions</p>
+        <p class="note">Answers, mostly</p>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>
+              <span>{faq.q}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section outro">
+    <div class="container outro-inner">
+      <p class="eyebrow"><span class="dot"></span> End of transmission</p>
+      <h2>
+        Seen enough?<br />
+        <em class="serif-italic">The countdown is running.</em>
+      </h2>
+      <div class="outro-actions">
+        <a class="btn btn-primary" href="/">Back to the homepage <span aria-hidden="true">→</span></a>
+        <a
+          class="btn btn-ghost"
+          href="mailto:hello@signal27.my?subject=Keep%20me%20in%20the%20loop%20%E2%80%94%20SIGNAL%2F27"
+        >
+          Get updates
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ---------------- Page hero ---------------- */
+
+  .page-hero {
+    position: relative;
+    padding-block: clamp(4rem, 9vw, 7.5rem) clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--line-soft);
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(50% 80% at 85% 0%, rgba(217, 255, 63, 0.12), transparent 70%),
+      radial-gradient(40% 60% at 0% 100%, rgba(167, 139, 250, 0.12), transparent 70%);
+  }
+
+  .page-title {
+    margin-top: 1.75rem;
+    font-size: clamp(2.9rem, 8.4vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+  }
+
+  .page-title em {
+    color: var(--lime);
+  }
+
+  .page-hero-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .page-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* ---------------- Story ---------------- */
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 6vw, 5rem);
+  }
+
+  .story-kicker {
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    line-height: 1.15;
+    color: var(--ink);
+    max-width: 20ch;
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+    align-self: start;
+  }
+
+  .story-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 58ch;
+  }
+
+  .pullquote {
+    margin-top: 1.5rem;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .pullquote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .pullquote cite {
+    display: block;
+    margin-top: 0.85rem;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  /* ---------------- Expectations ---------------- */
+
+  .expect {
+    background: var(--bg-soft);
+  }
+
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--line);
+  }
+
+  .expect-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: clamp(1.6rem, 3.2vw, 2.6rem);
+    background: var(--bg-soft);
+    transition: background 0.4s var(--ease);
+  }
+
+  .expect-card:hover {
+    background: var(--bg-raised);
+  }
+
+  .expect-num {
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--lime);
+  }
+
+  .expect-card h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+  }
+
+  .expect-card p {
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    max-width: 42ch;
+    flex: 1;
+  }
+
+  .expect-meta {
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  /* ---------------- Details ---------------- */
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .facts {
+    border-top: 1px solid var(--line);
+  }
+
+  .fact {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 1.15rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .fact dt {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-top: 0.2rem;
+  }
+
+  .fact dd {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--ink);
+  }
+
+  .venue {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+
+  .venue-map {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background:
+      linear-gradient(rgba(242, 239, 230, 0.07) 1px, transparent 1px) 0 0 / 26px 26px,
+      linear-gradient(90deg, rgba(242, 239, 230, 0.07) 1px, transparent 1px) 0 0 / 26px 26px,
+      radial-gradient(circle at 62% 45%, rgba(217, 255, 63, 0.16), transparent 45%),
+      var(--black);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent);
+  }
+
+  .venue-ring {
+    position: absolute;
+    left: 62%;
+    top: 45%;
+    width: 96px;
+    height: 96px;
+    translate: -50% -50%;
+    border: 1px solid rgba(217, 255, 63, 0.35);
+    border-radius: 50%;
+    animation: pulse-ring 3.5s var(--ease) infinite;
+  }
+
+  .venue-pin {
+    position: absolute;
+    left: 62%;
+    top: 45%;
+    width: 10px;
+    height: 10px;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 24px rgba(217, 255, 63, 0.9);
+  }
+
+  .venue-label {
+    position: absolute;
+    left: calc(62% + 12px);
+    top: calc(45% + 10px);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--lime);
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+  }
+
+  .venue-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .venue-copy h2 {
+    font-size: 1.3rem;
+    letter-spacing: -0.03em;
+  }
+
+  .venue-copy p {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .venue-link {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--lime);
+    align-self: flex-start;
+    border-bottom: 1px solid rgba(217, 255, 63, 0.35);
+    padding-bottom: 2px;
+  }
+
+  /* ---------------- FAQ ---------------- */
+
+  .faq {
+    background: var(--bg-soft);
+  }
+
+  .faq-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 1.35rem;
+    cursor: pointer;
+    list-style: none;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    transition: color 0.25s var(--ease);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary:hover {
+    color: var(--lime);
+  }
+
+  .faq-icon {
+    position: relative;
+    flex: none;
+    width: 14px;
+    height: 14px;
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: currentColor;
+    transition: transform 0.3s var(--ease);
+  }
+
+  .faq-icon::before {
+    width: 14px;
+    height: 1px;
+  }
+
+  .faq-icon::after {
+    width: 1px;
+    height: 14px;
+  }
+
+  .faq-item[open] .faq-icon::after {
+    transform: scaleY(0);
+  }
+
+  .faq-item p {
+    max-width: 62ch;
+    padding-bottom: 1.5rem;
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  /* ---------------- Outro ---------------- */
+
+  .outro-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .outro h2 {
+    font-size: clamp(2.2rem, 5vw, 3.75rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .outro h2 em {
+    color: var(--lime);
+  }
+
+  .outro-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 0.75rem;
+  }
+
+  /* ---------------- Responsive ---------------- */
+
+  @media (max-width: 900px) {
+    .story-grid,
+    .details-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .story-kicker {
+      position: static;
+      max-width: 28ch;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .expect-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fact {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
+    .venue {
+      max-width: 100%;
+    }
+  }
+</style>
