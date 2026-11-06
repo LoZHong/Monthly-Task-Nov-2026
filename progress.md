@@ -94,3 +94,6 @@ at USM Engineering Campus, Penang, 19–21 March 2027.
   config and added `role="group"` to the countdown (ARIA `aria-label` is not permitted on a
   generic element). Re-ran axe: 0 violations, 19 passes; 48 contrast nodes remain
   manual-review only because axe cannot resolve text over gradient backgrounds.
+- 2026-11-06 12:47 (+08): Added a PNG Apple touch icon, removed two unused CSS tokens, and
+  wrote `TECHNICAL_DOCUMENTATION.md` (87 headings, linked TOC, 16k-word specification and
+  ADR log). Pushed the branch to `origin`.
