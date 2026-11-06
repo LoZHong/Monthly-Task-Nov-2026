@@ -90,3 +90,7 @@ at USM Engineering Campus, Penang, 19–21 March 2027.
   responsive overflow, countdown, axe-core WCAG A/AA audit with 0 violations).
 - 2026-11-06 12:21 (+08): Committed the implementation on branch `feat/signal-27-teaser`.
   Cloudflare Pages deploy remains pending account authorization.
+- 2026-11-06 12:42 (+08): Hardening pass — made `output: 'static'` explicit in the Astro
+  config and added `role="group"` to the countdown (ARIA `aria-label` is not permitted on a
+  generic element). Re-ran axe: 0 violations, 19 passes; 48 contrast nodes remain
+  manual-review only because axe cannot resolve text over gradient backgrounds.
