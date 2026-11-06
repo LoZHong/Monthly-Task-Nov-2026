@@ -5,7 +5,7 @@
   "private": true,
   "description": "SIGNAL/27 — a coming-soon teaser site for a fictional CS Society USM festival, built with Astro.",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.23.4"
   },
   "scripts": {
     "dev": "astro dev",

@@ -6,7 +6,7 @@ which is the directory Cloudflare Pages should publish.
 ## Local
 
 ```bash
-# Node 22+ is required by Astro 7
+# Node 22.23.4+ is required by Astro 7
 npm install
 npm run dev        # http://localhost:4321
 npm run build      # static output in ./dist

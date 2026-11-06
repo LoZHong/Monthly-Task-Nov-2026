@@ -65,6 +65,7 @@ at USM Engineering Campus, Penang, 19–21 March 2027.
       (Status: Completed)
 - [x] Contrast pass: faint text raised to `#8a877f` (5.6:1 on the base background); CTA
       fine print darkened for AA contrast on lime (Status: Completed)
+- [x] axe-core WCAG 2.0 A/AA audit on all three pages: 0 violations (Status: Completed)
 - [ ] Deploy to Cloudflare Pages and record the live `*.pages.dev` URL (Status: Pending —
       blocked on Cloudflare account authorization, not on code)
 
@@ -86,4 +87,6 @@ at USM Engineering Campus, Penang, 19–21 March 2027.
 - 2026-11-06 12:18 (+08): Generated `og.png`, custom `favicon.ico`, `_headers`, `robots.txt`
   and `DEPLOY.md`; added noindex to the 404 page.
 - 2026-11-06 12:20 (+08): Final build and verification sweep (routing, links, assets,
-  responsive overflow, countdown).
+  responsive overflow, countdown, axe-core WCAG A/AA audit with 0 violations).
+- 2026-11-06 12:21 (+08): Committed the implementation on branch `feat/signal-27-teaser`.
+  Cloudflare Pages deploy remains pending account authorization.
