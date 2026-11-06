@@ -3,7 +3,8 @@
 ## Overview
 
 Build and ship a static "Coming Soon" teaser site for a fictional CS Society USM event, as
-specified in `README.md`. The site must use Astro's layout system, provide Home, About and a
+specified in `OLD_README.md` (the archived assignment brief). The site must use Astro's layout
+system, provide Home, About and a
 custom 404 page, look production-ready, build to `dist/`, and be deployable to Cloudflare Pages.
 The fictional event is **SIGNAL/27** — a three-day festival of code, craft and beautiful chaos
 at USM Engineering Campus, Penang, 19–21 March 2027.
@@ -97,3 +98,9 @@ at USM Engineering Campus, Penang, 19–21 March 2027.
 - 2026-11-06 12:47 (+08): Added a PNG Apple touch icon, removed two unused CSS tokens, and
   wrote `TECHNICAL_DOCUMENTATION.md` (87 headings, linked TOC, 16k-word specification and
   ADR log). Pushed the branch to `origin`.
+- 2026-11-06 13:56 (+08): Reworked the repository docs for submission — moved the assignment
+  brief to `OLD_README.md` via `git mv` (SHA-256 verified byte-identical to the original):
+  new `README.md` showcase with the live URL, overview, deliverables, quick start, doc
+  references and deployment contract; `astro.config.mjs` `site` set to
+  `https://monthly-task-nov-2026.pages.dev`. `npm run build` clean (3 pages), canonical and
+  `og:image` now resolve to the production domain. Committed as `e79b8bf`.
